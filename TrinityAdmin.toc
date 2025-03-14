@@ -1,36 +1,51 @@
-## Interface: 40300
+## Interface: 110100
 ## Title: TrinityAdmin
 ## Author: TrinityAdmin Dev team + Manground Dev Team
-## Version: 4.3.4
-## Notes: This addon works with TrinityCore 4.3.4
+## Version: 11.1.0
+## Notes: This addon provides a GM command interface for TrinityCore 11.1.0
 ## URL: http://code.google.com/p/trinityadmin/
 ## Name: TrinityAdmin
 ## License: GPLv3
-## X-Date: 10 August 2010
+## X-Date: 10 August 2023
 ## X-eMail:
 ## X-Website: http://code.google.com/p/trinityadmin/
-## OptionalDeps: AceLibrary,AceEvent-2.0,AceHook-2.1,AceDebug-2.0,AceLocale-2.2,AceConsole-2.0,AceAddon-2.0
+## OptionalDeps: Ace3
 ## DefaultState: Enabled
 ## LoadOnDemand: 0
 ## SavedVariables: MangAdminDb
 ## SavedVariablesPerCharacter: MangAdminDbPerChar
-Libraries\AceLibrary\AceLibrary.lua
-Libraries\AceOO-2.0\AceOO-2.0.lua
-Libraries\AceEvent-2.0\AceEvent-2.0.lua
-Libraries\AceHook-2.1\AceHook-2.1.lua
-Libraries\AceDB-2.0\AceDB-2.0.lua
-Libraries\AceDebug-2.0\AceDebug-2.0.lua
-Libraries\AceLocale-2.2\AceLocale-2.2.lua
-Libraries\AceConsole-2.0\AceConsole-2.0.lua
-Libraries\AceAddon-2.0\AceAddon-2.0.lua
-Libraries\Tablet-2.0\Tablet-2.0.lua
-Libraries\DewDrop-2.0\DewDrop-2.0.lua
-Libraries\FrameLib-1.0\FrameLib-1.0.lua
-Libraries\FuBarPlugin-2.0\FuBarPlugin-2.0.lua
-Libraries\Graph-1.0\Graph-1.0.lua
+
+###############################################################################
+# Bibliothèques Ace3 (remplace Ace2 / AceLibrary)
+###############################################################################
+Libs\AceAddon-3.0\AceAddon-3.0.xml
+Libs\AceConsole-3.0\AceConsole-3.0.xml
+Libs\AceDB-3.0\AceDB-3.0.xml
+Libs\AceEvent-3.0\AceEvent-3.0.xml
+Libs\AceHook-3.0\AceHook-3.0.xml
+Libs\AceLocale-3.0\AceLocale-3.0.xml
+Libs\AceTimer-3.0\AceTimer-3.0.xml
+Libs\AceGUI-3.0\AceGUI-3.0.xml
+
+###############################################################################
+# Localisation
+###############################################################################
 Locales\enUS.lua
 Locales\strings.lua
+
+###############################################################################
+# Modules principaux (logique GM, chargés en dur)
+###############################################################################
 models.lua
+dbc.lua
+TeleportTable.lua
+FunctionInit.lua
+TrinityAdmin.lua
+MangLinkifier.lua
+
+###############################################################################
+# Commandes GM (réparties par thème)
+###############################################################################
 Commands\Commands_Main.lua
 Commands\Commands_Tele.lua
 Commands\Commands_Log.lua
@@ -41,11 +56,10 @@ Commands\Commands_Server.lua
 Commands\Commands_NPC.lua
 Commands\Commands_GO.lua
 Commands\Commands_Who.lua
-dbc.lua
-TeleportTable.lua
-FunctionInit.lua
-TrinityAdmin.lua
-MangLinkifier.lua
+
+###############################################################################
+# Frames et gestion de l'interface
+###############################################################################
 Frames\MangFrames_Start.lua
 Frames\MangFrames_Tabs.lua
 Frames\MangFrames_MiniMenu.lua
