@@ -1,25 +1,27 @@
-﻿-------------------------------------------------------------------------------------------------------------
---
--- TrinityAdmin Version 4.x
--- TrinityAdmin is a derivative of MangAdmin.
+-------------------------------------------------------------------------------------------------------------
+-- TrinityAdmin Version 11.x (adapté de la version 4.x pour WoW 11.1.0)
+-- TrinityAdmin est un dérivé de MangAdmin.
 --
 -- Copyright (C) 2020 Free Software Foundation, Inc.
--- License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
--- This is free software: you are free to change and redistribute it.
--- There is NO WARRANTY, to the extent permitted by law.
+-- Licence GPLv3+: GNU GPL version 3 ou ultérieure <http://gnu.org/licenses/gpl.html>
+-- Ceci est un logiciel libre : vous êtes libre de le modifier et de le redistribuer.
+-- Aucune garantie n’est fournie, dans la mesure permise par la loi.
 --
--- You should have received a copy of the GNU General Public License
--- along with this program; if not, write to the Free Software
--- Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
---
--- Official Forums: http://groups.google.com/group/trinityadmin
--- GoogleCode Website: http://code.google.com/p/trinityadmin/
--- Subversion Repository: http://trinityadmin.googlecode.com/svn/
--- Dev Blog: http://trinityadmin.blogspot.com/
+-- Site officiel: http://code.google.com/p/trinityadmin/
 -------------------------------------------------------------------------------------------------------------
 
-function ReturnMapName(MapID)
-    if MapID == "0" then return "Eastern Kingdoms"
+-- NOTE :
+-- Dans la version 11.1.0 de WoW, beaucoup de ces MapID et ZoneID ont changé
+-- ou ne sont plus utilisés. Ce fichier est fourni à titre d’exemple pour
+-- conserver la logique existante. Vous pouvez le mettre à jour en fonction
+-- des IDs actuelles, ou ignorer ces fonctions si vous n’en avez plus besoin.
+
+local function ReturnMapName(MapID)
+  -- Liste héritée de la version 3.3.5 / 4.3.4
+  -- Renvoie un nom de carte selon l'ID fourni.
+  -- NB: Beaucoup d'IDs sont obsolètes dans la version 11.x.
+  if MapID == "0" then return "Eastern Kingdoms"
+  elseif MapID == "1" then return "Kalimdor"
     elseif MapID == "1" then return "Kalimdor"
     elseif MapID == "13" then return "Testing"
     elseif MapID == "25" then return "Scott Test"
@@ -143,14 +145,18 @@ function ReturnMapName(MapID)
     elseif MapID == "642" then return "Transport: HordeAirshipBG"
     elseif MapID == "647" then return "Transport: Orgrimmar to Thunder Bluff"
     elseif MapID == "649" then return "Trial of the Crusader"
-    elseif MapID == "650" then return "Trial of the Champion"
-    else return "BUG"
-    end
+     elseif MapID == "650" then return "Trial of the Champion"
+  else
+    return "BUG"
+  end
 end
 
-function ReturnAreaName(ZoneID)
-    if ZoneID == "1" then return "Dun Morogh"
-    elseif ZoneID == "2" then return "Longshore"
+local function ReturnAreaName(ZoneID)
+  -- Liste héritée de la version 3.3.5 / 4.3.4
+  -- Renvoie un nom de zone selon l'ID fourni.
+  -- NB: Beaucoup d'IDs sont obsolètes dans la version 11.x.
+  if ZoneID == "1" then return "Dun Morogh"
+  elseif ZoneID == "2" then return "Longshore"
     elseif ZoneID == "3" then return "Badlands"
     elseif ZoneID == "4" then return "Blasted Lands"
     elseif ZoneID == "7" then return "Blackwater Cove"
@@ -2432,8 +2438,9 @@ function ReturnAreaName(ZoneID)
     elseif ZoneID == "4763" then return "Transport: Alliance Gunship"
     elseif ZoneID == "4764" then return "Transport: Horde Gunship"
     elseif ZoneID == "4769" then return "Hrothgar's Landing"
-    else return "ZoneBUG"
-    end
+  else
+    return "ZoneBUG"
+  end
 end
 
 --CharTitles.dbc
